@@ -4,6 +4,7 @@ import 'package:vecul/core/services/navigator_service.dart';
 import 'package:vecul/ui/exports.dart';
 import 'package:vecul/ui/views/onboarding/onboarding_view_model.dart';
 import 'package:vecul/ui/widgets/custom_button.dart';
+import 'package:vecul/ui/widgets/page_indicator.dart';
 
 class OnboardingView extends StatefulWidget {
   const OnboardingView({Key? key}) : super(key: key);
@@ -173,7 +174,9 @@ class _OnboardingViewState extends State<OnboardingView>
                         ),
                         SizedBox(height: 40.h),
                         CustomButton(
-                          onTap: () {},
+                          onTap: () {
+                            _navService.pushNamed(loginView);
+                          },
                           text: 'Create Account',
                         ),
                         SizedBox(height: 10.h),
@@ -199,20 +202,4 @@ class _OnboardingViewState extends State<OnboardingView>
   }
 }
 
-class PageIndicator extends StatelessWidget {
-  final bool isActive;
-  const PageIndicator({Key? key, required this.isActive}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 300),
-      height: 9.r,
-      width: 9.r,
-      decoration:  BoxDecoration(
-        shape: BoxShape.circle,
-        color: isActive?AppColors.blue00: AppColors.greyC8,
-      ),
-    );
-  }
-}
