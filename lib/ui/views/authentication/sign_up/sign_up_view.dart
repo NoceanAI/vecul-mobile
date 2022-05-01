@@ -11,15 +11,20 @@ class SignUpView extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 24.w),
       child: SingleChildScrollView(
-       // reverse: true,
+        // reverse: true,
         physics: const BouncingScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SizedBox(height: 50.h),
             const CustomTextFieldWithLabel(
-              label: 'Full name',
-              hintText: 'John Doe',
+              label: 'Firstname',
+              hintText: 'John',
+            ),
+            SizedBox(height: 24.h),
+            const CustomTextFieldWithLabel(
+              label: 'Lastname',
+              hintText: 'Doe',
             ),
             SizedBox(height: 24.h),
             const CustomTextFieldWithLabel(
@@ -30,15 +35,17 @@ class SignUpView extends StatelessWidget {
             const CustomTextFieldWithLabel(
               label: 'Password',
               obscureText: true,
+              textFieldType: TextFieldType.password,
             ),
             SizedBox(height: 24.h),
             const CustomTextFieldWithLabel(
               label: 'Confirm Password',
               obscureText: true,
               textInputAction: TextInputAction.done,
+              textFieldType: TextFieldType.password,
             ),
             SizedBox(height: 44.h),
-            CustomButton(text: 'Sign Up', onTap: (){}),
+            CustomButton(text: 'Sign Up', onTap: () {}),
             SizedBox(height: 70.h),
           ],
         ),

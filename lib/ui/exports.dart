@@ -6,3 +6,6 @@ export 'package:vecul/core/routes/routes.dart';
 export 'package:vecul/ui/shared/image_urls.dart';
 export 'package:vecul/core/locator.dart';
 export 'package:vecul/ui/shared/constants.dart';
+export 'package:vecul/core/services/navigator_service.dart';
+export 'package:vecul/core/services/dialog_service.dart';
+export 'package:vecul/ui/shared/extensions/image_extension.dart';

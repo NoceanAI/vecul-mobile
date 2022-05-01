@@ -6,13 +6,15 @@ class CustomButton extends StatelessWidget {
   final VoidCallback onTap;
   final Color? buttonColor;
   final Color? textColor;
-  const CustomButton({Key? key, required this.text, required this.onTap, this.buttonColor, this.textColor})
+  final double? height;
+  final double? fontSize;
+  const CustomButton({Key? key, required this.text, required this.onTap, this.buttonColor, this.textColor, this.fontSize, this.height})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 63.h,
+      height: height??63.h,
       child: TextButton(
         style: TextButton.styleFrom(
           backgroundColor: buttonColor??AppColors.blue00,
@@ -25,8 +27,8 @@ class CustomButton extends StatelessWidget {
           text,
           style: TextStyle(
             color: textColor??AppColors.white,
-            fontWeight: FontWeight.w300,
-            fontSize: 18.sp,
+            fontWeight: FontWeight.w400,
+            fontSize: fontSize??18.sp,
             fontFamily: sfUI,
           ),
         ),

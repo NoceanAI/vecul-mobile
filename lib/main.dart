@@ -21,6 +21,10 @@ class Vecul extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           onGenerateRoute: Routes.onGenerateRoute,
           navigatorKey: locator<NavigatorService>().key,
+          theme: ThemeData(
+            fontFamily: sfPro,
+            scaffoldBackgroundColor: Colors.white,
+          ),
           home:  const SplashView(),
         );
       },

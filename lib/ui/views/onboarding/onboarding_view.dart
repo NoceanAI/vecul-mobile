@@ -175,14 +175,14 @@ class _OnboardingViewState extends State<OnboardingView>
                         SizedBox(height: 40.h),
                         CustomButton(
                           onTap: () {
-                            _navService.pushNamed(loginView);
+                            _navService.pushNamed(authView);
                           },
                           text: 'Create Account',
                         ),
                         SizedBox(height: 10.h),
                         CustomButton(
                           onTap: () {
-                            _navService.pushNamed(loginView);
+                            _navService.pushNamed(authView);
                           },
                           buttonColor: Colors.transparent,
                           text: 'Login to account',
