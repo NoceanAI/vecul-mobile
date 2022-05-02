@@ -18,4 +18,7 @@ class AppColors{
   static const black23 = Color(0xFF231F20);
   static const greyAE = Color(0xFFAEB8C0);
   static const lightBlue = Color.fromARGB(110, 0, 63,186 );//rgba(0,63,186,0.58)
+  static const pink = Color(0xFFFFC3C3);
+  static const greyB8 = Color(0xFFB8B8D2);
+  static const green = Color(0xFF00CA1C);
 }

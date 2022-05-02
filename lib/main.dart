@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:vecul/core/services/navigator_service.dart';
 import 'package:vecul/ui/exports.dart';
 import 'package:vecul/ui/views/splash/splash_view.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main(){
+void main() async{
+  await dotenv.load(fileName: '.env');
   setupLocator();
   runApp(const Vecul());
 }
@@ -12,6 +13,7 @@ class Vecul extends StatelessWidget {
   const Vecul({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(

@@ -26,6 +26,8 @@ class IndexView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<IndexViewModel>.reactive(
         viewModelBuilder: () => locator<IndexViewModel>(),
+        disposeViewModel: false,
+
         builder: (context, model, child) {
           return Scaffold(body: getCurrentScreen(model.currentIndex),
             bottomNavigationBar: BottomNavigationBar(

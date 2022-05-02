@@ -52,7 +52,8 @@ class _CustomTextFieldWithLabelState extends State<CustomTextFieldWithLabel> {
         SizedBox(height: 5.h),
         TextFormField(
           validator: widget.validator,
-          obscureText: _showPassword,
+          obscureText: widget.textFieldType == TextFieldType.password?!_showPassword: false,
+          controller: widget.controller,
           textInputAction: widget.textInputAction,
           keyboardType: widget.textInputType,
           style: TextStyle(
@@ -65,9 +66,8 @@ class _CustomTextFieldWithLabelState extends State<CustomTextFieldWithLabel> {
             suffixIcon: widget.textFieldType == TextFieldType.password
                 ? GestureDetector(
                     child: Icon(
-                      _showPassword
-                          ? Icons.visibility_outlined
-                          : Icons.visibility_off_outlined,
+                      _showPassword?
+                      Icons.visibility_off_outlined : Icons.visibility_outlined,
                       color: AppColors.grey82.withOpacity(0.53),
                       size: 18.r,
                     ),
