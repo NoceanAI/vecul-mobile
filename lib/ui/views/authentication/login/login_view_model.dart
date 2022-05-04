@@ -4,7 +4,7 @@ import 'dart:developer';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:vecul/core/data_sources/auth_data_source.dart';
-import 'package:vecul/core/models/user.dart';
+import 'package:vecul/core/models/tokens.dart';
 import 'package:vecul/core/services/shared_prefs_service.dart';
 import 'package:vecul/ui/exports.dart';
 
@@ -31,14 +31,15 @@ class LoginViewModel extends BaseViewModel {
   void _login() async {
     setBusy(true);
     try {
-      var data  = await _authDataSource.login(body: {
+      var tokens  = await _authDataSource.login(body: {
         'email': emailController.text.trim(),
         'password': passwordController.text.trim(),
       });
-      var user = User.fromJson(data);
-      SharedPrefsService().saveUser(user);
+      ///Save tokens before getting user
+      await SharedPrefsService().saveTokens(tokens);
+      await getUser();
       setBusy(false);
-      _navService.pushNamed(indexView);
+
     } catch (e) {
       setBusy(false);
       if(e.toString().contains("User is not confirmed")){
@@ -48,6 +49,19 @@ class LoginViewModel extends BaseViewModel {
       }else{
         _dialogService.showErrorDialog(e.toString());
       }
+    }
+  }
+
+  Future getUser() async{
+    setBusy(true);
+    try{
+      var user = await _authDataSource.getUser();
+      await SharedPrefsService().saveUser(user);
+      setBusy(false);
+      _navService.pushNamed(indexView);
+    }catch(e){
+      _dialogService.showWarningDialog(e.toString());
+      setBusy(false);
     }
   }
 

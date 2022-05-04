@@ -1,31 +1,31 @@
 class User {
   User({
-    required this.idToken,
-    required this.refreshToken,
-    required this.accessToken,
-    required this.expiresIn,
-    required this.tokenType,
+    required this.sub,
+    required this.emailVerified,
+    required this.givenName,
+    required this.familyName,
+    required this.email,
   });
 
-  final String idToken;
-  final String refreshToken;
-  final String accessToken;
-  final int expiresIn;
-  final String tokenType;
+  final String sub;
+  final String emailVerified;
+  final String givenName;
+  final String familyName;
+  final String email;
 
   factory User.fromJson(Map<String, dynamic> json) => User(
-    idToken: json["id_token"],
-    refreshToken: json["refresh_token"],
-    accessToken: json["access_token"],
-    expiresIn: json["expires_in"],
-    tokenType: json["token_type"],
+    sub: json["sub"],
+    emailVerified: json["email_verified"],
+    givenName: json["given_name"],
+    familyName: json["family_name"],
+    email: json["email"],
   );
 
   Map<String, dynamic> toJson() => {
-    "id_token": idToken,
-    "refresh_token": refreshToken,
-    "access_token": accessToken,
-    "expires_in": expiresIn,
-    "token_type": tokenType,
+    "sub": sub,
+    "email_verified": emailVerified,
+    "given_name": givenName,
+    "family_name": familyName,
+    "email": email,
   };
 }
