@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:vecul/ui/exports.dart';
 
 class CustomButton extends StatelessWidget {
@@ -8,7 +9,8 @@ class CustomButton extends StatelessWidget {
   final Color? textColor;
   final double? height;
   final double? fontSize;
-  const CustomButton({Key? key, required this.text, required this.onTap, this.buttonColor, this.textColor, this.fontSize, this.height})
+  final bool isLoading;
+  const CustomButton({Key? key, required this.text, required this.onTap, this.buttonColor, this.textColor, this.fontSize, this.height, this.isLoading = false})
       : super(key: key);
 
   @override
@@ -23,7 +25,9 @@ class CustomButton extends StatelessWidget {
           )
         ),
         onPressed: onTap,
-        child: Text(
+        child: isLoading?const SpinKitCircle(
+          color: AppColors.white,
+        ):Text(
           text,
           style: TextStyle(
             color: textColor??AppColors.white,

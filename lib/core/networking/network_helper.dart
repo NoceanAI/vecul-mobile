@@ -2,10 +2,12 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
+import 'package:vecul/core/networking/error_handler.dart';
 
 import 'api.dart';
 
 class NetworkHelper extends API{
+  final ErrorHandler _errorHandler = ErrorHandler();
 
   @override
   Future<dynamic> get(String url, {Map<String, String>? headers}) async {
@@ -27,7 +29,7 @@ class NetworkHelper extends API{
       }
       return response.body;
     } catch (e) {
-      rethrow;
+      _errorHandler(e);
     }
   }
 
@@ -57,7 +59,7 @@ class NetworkHelper extends API{
       }
       return response.body;
     } catch (e) {
-      rethrow;
+      _errorHandler(e);
     }
   }
 
@@ -82,7 +84,7 @@ class NetworkHelper extends API{
       }
       return response.body;
     } catch (e) {
-      rethrow;
+      _errorHandler(e);
     }
   }
 
@@ -107,7 +109,7 @@ class NetworkHelper extends API{
       }
       return response.body;
     } catch (e) {
-      rethrow;
+      _errorHandler(e);
     }
   }
 
@@ -131,7 +133,7 @@ class NetworkHelper extends API{
       }
       return response.body;
     } catch (e) {
-      rethrow;
+      _errorHandler(e);
     }
   }
 }

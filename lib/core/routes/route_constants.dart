@@ -7,3 +7,4 @@ const String indexView = 'indexView';
 const String profileView = 'profileView';
 const String messagesView = 'messagesView';
 const String chatView = 'chatView';
+const String verifyEmailView = 'verifyEmailView';

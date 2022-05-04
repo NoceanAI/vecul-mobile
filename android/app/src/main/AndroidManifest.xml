@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.vecul.vecul">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="vecul"
         android:name="${applicationName}"

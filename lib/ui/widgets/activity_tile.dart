@@ -15,14 +15,18 @@ class ActivityTile extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 24.r, vertical: 18.r),
       child: Row(
         children: [
-          Icon(Icons.folder_outlined, size: 20.r,),
+          Icon(
+            Icons.folder_outlined,
+            size: 20.r,
+            color: AppColors.lightBlue.withAlpha(82),
+          ),
           SizedBox(width: 18.r),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  text??'A booking is available on your honda civic 2019',
+                  text ?? 'A booking is available on your honda civic 2019',
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(

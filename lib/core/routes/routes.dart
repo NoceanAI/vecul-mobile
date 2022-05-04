@@ -7,6 +7,8 @@ import 'package:vecul/ui/views/messages/messages_view.dart';
 import 'package:vecul/ui/views/onboarding/onboarding_view.dart';
 import 'package:vecul/ui/views/profile/profile_view.dart';
 import 'package:vecul/ui/views/splash/splash_view.dart';
+import 'package:vecul/ui/views/verify_email/verify_email_view.dart';
+import 'package:vecul/ui/widgets/route_animations/slide_page_route.dart';
 
 part 'route_constants.dart';
 
@@ -18,7 +20,17 @@ class Routes {
       case onboardingView:
         return _materialPageRoute(child: const OnboardingView());
       case authView:
-        return _materialPageRoute(child: const AuthView());
+        final index = settings.arguments as int;
+        return _materialPageRoute(
+          child: AuthView(
+            tabIndex: index,
+          ),
+        );
+      case verifyEmailView:
+        final email = settings.arguments as String;
+        return SlidePageRoute(
+          page:  VerifyEmailView(emailAddress: email,)
+        );
       case indexView:
         return _materialPageRoute(child: const IndexView());
       case profileView:
