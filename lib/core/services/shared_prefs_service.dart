@@ -23,6 +23,9 @@ class SharedPrefsService {
 
   User getUser(){
     String data = _sharedPrefs.getString(userKey)??'';
+    if (!_sharedPrefs.containsKey(userKey)){
+
+    };
     return User.fromJson(json.decode(data));
   }
 

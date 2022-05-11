@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:vecul/core/models/user.dart';
 import 'package:vecul/ui/exports.dart';
 import 'package:vecul/ui/widgets/custom_button.dart';
 
@@ -8,6 +9,8 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final navService = locator<NavigatorService>();
+    final User user =  SharedPrefsService().getUser();
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: true,
@@ -35,7 +38,7 @@ class ProfileView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'John Doe',
+                      '${user.givenName} ${user.familyName}',
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 16.sp,
@@ -44,7 +47,7 @@ class ProfileView extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'example@email.com',
+                      user.email,
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 9.sp,
@@ -53,14 +56,17 @@ class ProfileView extends StatelessWidget {
                     ),
                   ],
                 ),
-                CircleAvatar(
-                  radius: 13.5.r,
-                  backgroundColor: AppColors.blue00,
-                  child: Text(
-                    'JD',
-                    style: TextStyle(
-                      fontSize: 10.sp,
-                      color: AppColors.white,
+                Hero(
+                  tag: 'profile',
+                  child: CircleAvatar(
+                    radius: 13.5.r,
+                    backgroundColor: AppColors.blue00,
+                    child: Text(
+                      '${user.givenName[0]}${user.familyName[0]}',
+                      style: TextStyle(
+                        fontSize: 10.sp,
+                        color: AppColors.white,
+                      ),
                     ),
                   ),
                 ),
@@ -71,7 +77,9 @@ class ProfileView extends StatelessWidget {
               text: 'Edit Profile',
               fontSize: 12.sp,
               height: 40.h,
-              onTap: () {},
+              onTap: () {
+                navService.pushNamed(editProfileView);
+              },
             ),
             SizedBox(height: 18.h),
             CustomListTile(
@@ -80,7 +88,9 @@ class ProfileView extends StatelessWidget {
                 width: 13.r,
                 height: 13.r,
               ),
-              onTap: () {},
+              onTap: () {
+                navService.pushNamed(accountView);
+              },
               title: 'Account',
             ),
             Divider(
@@ -92,7 +102,9 @@ class ProfileView extends StatelessWidget {
                 width: 13.r,
                 height: 13.r,
               ),
-              onTap: () {},
+              onTap: () {
+                navService.pushNamed(favouritesView);
+              },
               title: 'Favourite',
             ),
             Divider(

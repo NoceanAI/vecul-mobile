@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:vecul/core/models/car.dart';
+import 'package:vecul/ui/views/account/account_view.dart';
+import 'package:vecul/ui/views/add_car/add_car_view.dart';
 import 'package:vecul/ui/views/authentication/auth_view.dart';
+import 'package:vecul/ui/views/car_info/car_info_view.dart';
 import 'package:vecul/ui/views/chat/chat_view.dart';
 import 'package:vecul/ui/views/dashboard/dashboard_view.dart';
+import 'package:vecul/ui/views/edit_profile/edit_profile_view.dart';
+import 'package:vecul/ui/views/favourites/favourites_view.dart';
+import 'package:vecul/ui/views/forgot_password/forgot_password_view.dart';
 import 'package:vecul/ui/views/index/index_view.dart';
 import 'package:vecul/ui/views/messages/messages_view.dart';
 import 'package:vecul/ui/views/onboarding/onboarding_view.dart';
@@ -39,7 +46,19 @@ class Routes {
         return _materialPageRoute(child: const MessagesView());
       case chatView:
         return _materialPageRoute(child: const ChatView());
-
+      case addCarView:
+        return _materialPageRoute(child: const AddCarView());
+      case forgotPasswordView:
+        return _materialPageRoute(child: const ForgotPasswordView());
+      case accountView:
+        return _materialPageRoute(child: const AccountView());
+      case favouritesView:
+        return _materialPageRoute(child: const FavouritesView());
+      case editProfileView:
+        return _materialPageRoute(child: const EditProfileView());
+      case carInfoView:
+        final args = settings.arguments as Car;
+        return _materialPageRoute(child: CarInfoView(car: args,));
       default:
         return _materialPageRoute(
           child: const Scaffold(

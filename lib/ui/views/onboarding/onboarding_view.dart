@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:vecul/core/services/navigator_service.dart';
 import 'package:vecul/ui/exports.dart';
 import 'package:vecul/ui/views/onboarding/onboarding_view_model.dart';
 import 'package:vecul/ui/widgets/custom_button.dart';

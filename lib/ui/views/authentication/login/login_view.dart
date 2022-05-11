@@ -67,7 +67,9 @@ class LoginView extends StatelessWidget {
                           borderRadius: BorderRadius.circular(8.r),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        locator<NavigatorService>().pushNamed(forgotPasswordView);
+                      },
                       child: Text(
                         'Forgot Password',
                         style: TextStyle(

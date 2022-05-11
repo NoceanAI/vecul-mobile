@@ -16,21 +16,25 @@ class Vecul extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      builder: (BuildContext context) {
-        return MaterialApp(
-          title: 'Vecul',
-          debugShowCheckedModeBanner: false,
-          onGenerateRoute: Routes.onGenerateRoute,
-          navigatorKey: locator<NavigatorService>().key,
-          theme: ThemeData(
-            fontFamily: sfPro,
-            scaffoldBackgroundColor: Colors.white,
-          ),
-          home:  const SplashView(),
+    return OrientationBuilder(
+      builder: (context, orientation) {
+        return ScreenUtilInit(
+          builder: (BuildContext context) {
+            return MaterialApp(
+              title: 'Vecul',
+              debugShowCheckedModeBanner: false,
+              onGenerateRoute: Routes.onGenerateRoute,
+              navigatorKey: locator<NavigatorService>().key,
+              theme: ThemeData(
+                fontFamily: sfPro,
+                scaffoldBackgroundColor: Colors.white,
+              ),
+              home:  const SplashView(),
+            );
+          },
+          designSize: orientation  == Orientation.portrait?const Size(375, 812):Size(812, 375),
         );
-      },
-      designSize: const Size(375, 812),
+      }
     );
   }
 }

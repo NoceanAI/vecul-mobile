@@ -32,7 +32,7 @@ class AuthDataSource {
     try {
       var json = _decoder.convert(
         await _networkHelper.post(
-          _endpoints.getUserByAccessToken,
+          _endpoints.getUserByAccessTokenUrl,
           body: {
             'access_token': _prefsService.getTokens().accessToken,
           },

@@ -46,7 +46,7 @@ class HistoryBaseView extends StatelessWidget {
                 Tab(text: 'Activity'),
               ],
             ),
-            Expanded(
+            const Expanded(
               child: TabBarView(
                 children: [
                   HistoryView(),

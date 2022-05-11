@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vecul/ui/exports.dart';
+import 'package:vecul/ui/views/add_car/add_car_view.dart';
 import 'package:vecul/ui/views/dashboard/dashboard_view.dart';
 import 'package:vecul/ui/views/history/history_base_view.dart';
 import 'package:vecul/ui/views/messages/messages_view.dart';
@@ -13,6 +14,8 @@ class IndexView extends StatelessWidget {
     switch (index) {
       case 0:
         return const DashboardView();
+      case 1:
+        return const AddCarView();
       case 2:
         return const MessagesView();
       case 3:

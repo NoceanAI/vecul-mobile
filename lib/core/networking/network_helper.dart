@@ -136,4 +136,34 @@ class NetworkHelper extends API{
       _errorHandler(e);
     }
   }
+
+  Future<dynamic> postForm(String url, List<http.MultipartFile> files, {Map<String, String>? headers,Map<String, String>? body}) async {
+
+    if (kDebugMode) {
+      print(
+          """
+        POST FORM
+        url: $url,
+        headers: $headers,
+        """
+      );}
+    try {
+      print(files);
+      headers!['Content-Type'] = 'image/jpg';
+      var request = http.MultipartRequest('POST', Uri.parse(url));
+      request.headers.addAll(headers);
+      request.fields.addAll(body!);
+      request.files.addAll(files);
+
+      final streamedResponse = await request.send();
+      final response = await http.Response.fromStream(streamedResponse);
+      final int statusCode = response.statusCode;
+      final dynamic res = json.decode(response.body);
+      // log(res.toString().toString());
+      if (statusCode < 200 || statusCode > 400) throw res;
+      return res;
+    } catch (e) {
+      rethrow;
+    }
+  }
 }
